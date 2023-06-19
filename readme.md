@@ -22,4 +22,4 @@ An internal network named `internal` is created as a custom bridge network for c
 
 ## Running and Testing
 
-To run this Docker Compose file, use the `docker-compose up` command in the same directory as the file. To test for DNS spoofing from outside the container, try to resolve a domain name using the `alpine-dns` service and see if it returns the IP address of the `fake_server` instead of the `actual_server`.
+To run this Docker Compose file, use the `docker-compose up` command in the same directory as the file. To test for DNS spoofing from outside the container, try to resolve `example.com` using the `alpine-dns` service and see if it returns the IP address of the `fake_server` instead of the `actual_server`.
