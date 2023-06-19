@@ -1,0 +1,21 @@
+version: "3.9"
+services:
+  alpine-dns:
+    build: .
+    ports:
+      - "53:53"
+  actual_server:
+    build: ./actual_server # path to the Dockerfile for actual server
+    expose:
+      - 80 # expose port 80 within the container
+    networks:
+      - internal # connect to the internal network
+  fake_server:
+    build: ./fake_server # path to the Dockerfile for fake server
+    expose:
+      - 80 # expose port 80 within the container
+    networks:
+      - internal # connect to the internal network
+networks:
+  internal: # create a custom network for internal communication
+    driver: bridge
